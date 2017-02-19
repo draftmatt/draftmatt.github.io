@@ -318,5 +318,5 @@ a:hover { text-decoration: underline; }
 .site-footer-credits { color: #819198; }
 
 .centre-box { position: relative; }
-@media only screen and (min-width: 64em) { top: 190px }
-@media only screen and (min-width: 42em) { top: 225px }
+@media only screen and (min-width: 64em) { .centre-box { top: 190px } }
+@media only screen and (min-width: 42em) { .centre-box { top: 225px } }
