@@ -328,5 +328,6 @@ input[type="submit"]
   background-color: #39449a;
   color: #ffffff;
   min-height: 50px;
+  width: 50%;
   border: 0;
 }
