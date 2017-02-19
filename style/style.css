@@ -319,4 +319,4 @@ a:hover { text-decoration: underline; }
 
 .centre-box { position: relative; }
 @media only screen and (min-width: 64em) { .centre-box { top: 190px } }
-@media only screen and (min-width: 42em) { .centre-box { top: 225px } }
+/* @media only screen and (min-width: 42em) { .centre-box { top: 225px } } */
