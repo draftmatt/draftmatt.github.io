@@ -321,6 +321,8 @@ a:hover { text-decoration: underline; }
 @media only screen and (min-width: 64em) { .centre-box { margin: 190px 0 0 0 } }
 /* @media only screen and (min-width: 42em) { .centre-box { top: 225px } } */
 
+.form-box { margin: 1em 0; }
+
 input { color: #000000; }
 
 input[type="submit"]
