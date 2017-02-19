@@ -335,4 +335,11 @@ input[type="submit"]
   font-weight: 900;
 }
 
+input[type="submit"]:hover
+{
+  background-color: #ffffff;
+  color: #39449a;
+  border: 2px solid #39449a;
+}
+
 .wrap-left { float: left; margin-right: 1em; }
