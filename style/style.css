@@ -320,3 +320,11 @@ a:hover { text-decoration: underline; }
 .centre-box { position: relative; }
 @media only screen and (min-width: 64em) { .centre-box { margin: 190px 0 0 0 } }
 /* @media only screen and (min-width: 42em) { .centre-box { top: 225px } } */
+
+input[type="submit]
+{
+  background-color: #39449a;
+  color: #ffffff;
+  min-height: 50px;
+  border: 0;
+}
