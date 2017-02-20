@@ -327,7 +327,7 @@ a:hover { text-decoration: underline; }
 .left-align { text-align: left }
 
 .form-box > span { margin: 0 1em; }
-.form-box > label { margin: 0 2px; }
+.form-box label { margin: 0 2px; }
 
 input { color: #000000; }
 
