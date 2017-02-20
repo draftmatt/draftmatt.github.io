@@ -324,6 +324,7 @@ a:hover { text-decoration: underline; }
 .centre-form { margin: auto; width: 40em; }
 
 .form-box { margin: 1em 0; }
+.left-align { text-align: left }
 
 input { color: #000000; }
 
