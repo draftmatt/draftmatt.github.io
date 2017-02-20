@@ -321,6 +321,7 @@ a:hover { text-decoration: underline; }
 @media only screen and (min-width: 64em) { .centre-box { margin: 190px 0 0 0 } }
 /* @media only screen and (min-width: 42em) { .centre-box { top: 225px } } */
 .centre-box h1 { font-family: Georgia, serif; }
+.centre-box h2 { font-family: Helvetica, sans-serif; }
 
 .centre-form { margin: auto; width: 40em; }
 
