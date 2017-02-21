@@ -331,7 +331,7 @@ a:hover { text-decoration: underline; }
 .form-box { margin: 1em 0; }
 .left-align { text-align: left }
 
-.form-box > span { margin: 0 1em; }
+.form-box > span { margin: 1em; }
 .form-box label { margin: 0 2px; }
 
 input { color: #000000; }
