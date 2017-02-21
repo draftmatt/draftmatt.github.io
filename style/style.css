@@ -328,8 +328,8 @@ a:hover { text-decoration: underline; }
 @media screen and (min-width: 64em) { .centre-form { width: 40em; } }
 @media screen and (max-width: 42em) { .centre-form { width: 20em; } }
 
-.form-box { margin: 1em 0; }
-.form-element { display: inline-block; margin: 0.5em 0; }
+.form-box { margin: 0.5em 0; }
+.form-element { display: inline-block; margin: 0.5em; }
 .left-align { text-align: left }
 
 .form-box > span { margin: 1em; }
