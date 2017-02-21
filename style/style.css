@@ -315,7 +315,7 @@ a:hover { text-decoration: underline; }
 
 .site-footer-owner { display: block; font-weight: bold; }
 
-.site-footer-credits { color: #819198; }
+.site-footer-credits { color: #819198; border: 1px solid #CCC; }
 
 .centre-box { position: relative; }
 @media screen and (min-width: 64em) { .centre-box { margin: 190px 0 0 0; } }
