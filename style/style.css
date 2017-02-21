@@ -324,7 +324,7 @@ a:hover { text-decoration: underline; }
 .centre-box h1 { font-family: Georgia, serif; }
 .centre-box h2 { font-family: Helvetica, sans-serif; text-transform: uppercase; }
 
-.centre-form { display: flex; margin: auto; }
+.centre-form { /* display: flex; */ margin: auto; }
 @media screen and (min-width: 64em) { .centre-form { width: 40em; } }
 @media screen and (max-width: 42em) { .centre-form { width: 20em; } }
 
