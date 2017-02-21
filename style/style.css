@@ -323,7 +323,8 @@ a:hover { text-decoration: underline; }
 /* @media only screen and (min-width: 42em) { .centre-box { top: 225px } } */
 .centre-box h1 { font-family: Georgia, serif; }
 .centre-box h2 { font-family: Helvetica, sans-serif; text-transform: uppercase; }
-.centre-box > hr { width: 50%; }
+
+.logo > hr { width: 50%; }
 
 .centre-form { /* display: flex; */ margin: auto; }
 @media screen and (min-width: 64em) { .centre-form { width: 40em; } }
