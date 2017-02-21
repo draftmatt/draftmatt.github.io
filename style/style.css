@@ -268,7 +268,7 @@ a:hover { text-decoration: underline; }
 .page-header { color: #fff; text-align: center; background-image: url('/images/moving-shaking.jpg'); min-height: 900px; background-position: 0 -125px; }
 @media screen and (min-width: 64em) { .page-header { padding: 5rem 6rem; } }
 @media screen and (min-width: 42em) and (max-width: 64em) { .page-header { padding: 3rem 4rem; } }
-@media screen and (max-width: 42em) { .page-header { padding: 2rem 1rem; background-position: -125px -125px; } }
+@media screen and (max-width: 42em) { .page-header { padding: 2rem 1rem; background-position: -250px -125px; } }
 
 .project-name { margin-top: 0; margin-bottom: 0.1rem; }
 @media screen and (min-width: 64em) { .project-name { font-size: 3.25rem; } }
