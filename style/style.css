@@ -324,7 +324,7 @@ a:hover { text-decoration: underline; }
 .centre-box h1 { font-family: Georgia, serif; }
 .centre-box h2 { font-family: Helvetica, sans-serif; text-transform: uppercase; }
 
-#flag-logo { max-width: 390px; }
+#flag-logo { width: 390px; max-width: 100%; }
 
 .logo > hr { width: 50%; }
 
