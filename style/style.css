@@ -268,7 +268,7 @@ a:hover { text-decoration: underline; }
 /* Navigation bar */
 nav { z-index: 1000; }
 
-.nav-container { padding: 15px 0; }
+.nav-container { padding: 0 15px; }
 
 .page-header { color: #fff; text-align: center; background-image: url('/images/moving-shaking.jpg'); background-repeat: no-repeat; min-height: 900px; max-height: 1240px; background-position: 0 -125px; }
 @media screen and (min-width: 64em) { .page-header { padding: 5rem 6rem; } }
