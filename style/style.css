@@ -353,7 +353,7 @@ nav:after, .nav-container:after, .navbar-collapse:after, .navbar-header:after, .
 @media screen and (min-width: 64em) { .centre-box { margin: 190px 0 0 0; } }
 @media screen and (max-width: 42em) { .centre-box { margin: 225px 0 0 0; } }
 /* @media only screen and (min-width: 42em) { .centre-box { top: 225px } } */
-.centre-box h1 { font-family: Georgia, serif; }
+.centre-box h1 { font-family: Helvetica, sans-serif; text-transform: uppercase; }
 .centre-box h2 { font-family: Helvetica, sans-serif; text-transform: uppercase; }
 
 #flag-logo { width: 390px; max-width: 100%; }
