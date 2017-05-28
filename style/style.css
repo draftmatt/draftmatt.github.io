@@ -276,7 +276,7 @@ nav { z-index: 1000; }
 
 @media screen and (max-width: 42em) { .navbar-toggle { background-color: #39449a; } }
 
-.navbar-toggle .icon-bar { display: block; width: 22px; height: 2px; background-color: #ffffff; }
+.navbar-toggle .icon-bar { display: block; width: 22px; height: 2px; background-color: #ffffff; border-radius: 1px; }
 
 .page-header { color: #fff; text-align: center; background-image: url('/images/moving-shaking.jpg'); background-repeat: no-repeat; min-height: 900px; max-height: 1240px; background-position: 0 -125px; }
 @media screen and (min-width: 64em) { .page-header { padding: 5rem 6rem; } }
