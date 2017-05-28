@@ -266,7 +266,7 @@ a:hover { text-decoration: underline; }
   .btn + .btn { margin-top: 1rem; margin-left: 0; } }
 
 /* Navigation bar */
-nav { z-index: 1000; }
+nav { z-index: 1000; min-height: 50px; position: relative; }
 
 .nav-container { padding: 0 15px; }
 @media screen and (max-width: 42em) { .nav-container { max-width: 42em } }
