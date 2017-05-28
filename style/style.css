@@ -389,3 +389,4 @@ input[type="submit"]:hover
 }
 
 .wrap-left { float: left; margin-right: 1em; }
+.wrap-right { float: right; margin-left: 1em; }
