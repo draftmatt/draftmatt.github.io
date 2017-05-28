@@ -271,6 +271,8 @@ nav { z-index: 1000; min-height: 50px; position: relative; }
 .nav-container { padding: 0 15px; }
 @media screen and (max-width: 42em) { .nav-container { max-width: 42em } }
 
+.navbar-header { float: left; }
+
 .navbar-collapse { overflow-x: visible; padding: 0 15px; }
 .collapse { display: none; visibility: hidden; }
 @media screen and (min-width: 64em) { .navbar-collapse { display: block !important; visibility: visible !important; height: auto !important; overflow: visible !important; } }
