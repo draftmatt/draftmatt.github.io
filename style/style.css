@@ -282,7 +282,7 @@ nav { z-index: 1000; min-height: 50px; position: relative; }
 .navbar-toggle .icon-bar { display: block; width: 22px; height: 2px; background-color: #ffffff; border-radius: 1px; margin: 4px 0; }
 .dropdown { position: relative; display: block; }
 
-.navbar-nav { list-style: none; }
+.navbar-nav { list-style: none; margin: 0; }
 nav:before, nav:after, .nav-container:before, .nav-container:after, .navbar-collapse:before, .navbar-collapse:after, .navbar-header:before, .navbar-header:after, .navbar-nav:before, .navbar-nav:after { content: " "; display: table; }
 nav:after, .nav-container:after, .navbar-collapse:after, .navbar-header:after, .navbar-nav:after { clear: both; }
 
