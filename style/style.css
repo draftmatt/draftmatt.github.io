@@ -281,7 +281,7 @@ nav { z-index: 1000; }
 .dropdown { position: relative; display: block; }
 
 .navbar-nav { list-style: none; }
-.navbar-collapse:before, .navbar-collapse:after, .navbar-header:before, .navbar-header:after, .navbar-nav:before, .navbar-nav:after { content: " "; display: table; }
+.nav-container:before, .nav-container:after, .navbar-collapse:before, .navbar-collapse:after, .navbar-header:before, .navbar-header:after, .navbar-nav:before, .navbar-nav:after { content: " "; display: table; }
 
 .navbar-nav > li > a { padding: 20px 30px; line-height: 30px; }
 
