@@ -275,12 +275,13 @@ nav { z-index: 1000; }
 @media screen and (min-width: 64em) { .navbar-collapse { display: block !important; visibility: visible !important; height: auto !important; overflow: visible !important; } }
 
 @media screen and (max-width: 42em) { .navbar-toggle { background-color: #39449a; } }
+@media screen and (min-width: 64em) { .navbar-toggle { display: none } }
 
 .navbar-toggle .icon-bar { display: block; width: 22px; height: 2px; background-color: #ffffff; border-radius: 1px; }
 .dropdown { position: relative; display: block; }
 
 .navbar-nav { list-style: none; }
-.navbar-nav:before, .navbar-nav:after { content: " "; display: table; }
+.navbar-header:before, .navbar-header:after, .navbar-nav:before, .navbar-nav:after { content: " "; display: table; }
 
 @media (min-width: 64em) { .navbar-nav > li { float: left; } }
 
