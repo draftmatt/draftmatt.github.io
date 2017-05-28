@@ -280,6 +280,7 @@ nav { z-index: 1000; }
 .dropdown { position: relative; display: block; }
 
 .navbar-nav { list-style: none; }
+.navbar-nav:before, .navbar-nav:after { content: " "; display: table; }
 
 @media (min-width: 64em) { .navbar-nav > li { float: left; } }
 
