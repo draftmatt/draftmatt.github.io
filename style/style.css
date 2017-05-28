@@ -268,6 +268,8 @@ a:hover { text-decoration: underline; }
 /* Navigation bar */
 nav { z-index: 1000; min-height: 50px; position: relative; }
 
+.navbar-brand { float: left; padding: 15px; line-height: 20px; }
+
 .nav-container { padding: 0 15px; }
 @media screen and (max-width: 42em) { .nav-container { max-width: 42em } }
 
