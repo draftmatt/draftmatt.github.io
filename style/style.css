@@ -275,7 +275,7 @@ nav { z-index: 1000; min-height: 50px; position: relative; }
 @media screen and (min-width: 64em) { .navbar-collapse { display: block !important; visibility: visible !important; height: auto !important; overflow: visible !important; } }
 
 .navbar-toggle { position: relative; float: right; margin-right: 15px; padding: 10px; }
-@media screen and (max-width: 42em) { .navbar-toggle { background-color: #39449a; position: relative; float: right; border: 0 solid transparent; border-radius: 1px } }
+@media screen and (max-width: 64em) { .navbar-toggle { background-color: #39449a; position: relative; float: right; border: 0 solid transparent; border-radius: 1px } }
 @media screen and (min-width: 64em) { .navbar-toggle { display: none } }
 
 .navbar-toggle .icon-bar { display: block; width: 22px; height: 2px; background-color: #ffffff; border-radius: 1px; margin: 4px 0; }
