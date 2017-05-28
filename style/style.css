@@ -287,7 +287,7 @@ nav:before, nav:after, .nav-container:before, .nav-container:after, .navbar-coll
 nav:after, .nav-container:after, .navbar-collapse:after, .navbar-header:after, .navbar-nav:after { clear: both; }
 
 
-.navbar-nav > li > a { padding: 20px 30px; line-height: 30px; }
+.navbar-nav > li > a { padding: 20px 30px; line-height: 30px; position: relative; display: block; }
 
 @media (min-width: 64em) { .navbar-nav > li { float: left; } }
 
