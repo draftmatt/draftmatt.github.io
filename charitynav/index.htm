@@ -47,7 +47,7 @@ Bugsnag.context = "/index.cfm?bay=search.summary";
 
 	<meta property="og:title" content="Charity Navigator - Rating for The K. K. Leung Foundation">
     <meta property="og:type" content="non_profit">
-    <meta property="og:url" content="http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=16680">
+    <!--<meta property="og:url" content="http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=16680">-->
     <meta property="og:image" content="https://d20umu42aunjpx.cloudfront.net/_gfx_/promo/printable/jpegs/general_square.jpg">
     <meta property="og:site_name" content="Charity Navigator">
     <meta property="og:description" content="The K. K. Leung Foundation is an International charity rated 0 of 4 stars by Charity Navigator. Located in Vancouver, British Columbia, it is one of 8,539 organizations rated by Charity Navigator.">
@@ -134,15 +134,85 @@ function submit_form ( )
 
 
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-57393795-2', 'auto');
-      ga('send', 'pageview');
-    </script>
+  // default to testsite
+  var account = "UA-560507-7";
+
+  try {
+    switch(document.location.host.toLowerCase()) {
+      case "www.charitynavigator.org":
+        account = 'UA-560507-1';
+        break;
+    	case "localsite":
+    		account = "UA-560507-8";
+    		break;
+    }
+  } catch(e) {}
+
+  ga('create', account, 'auto');
+
+  ga('require', 'ec');
+
+
+  ga('set', {
+      "dimension3": "0",
+
+  });
+
+
+    function trackOutboundLink(link, category, action) {
+
+    try {
+      ga('send', 'event', category, action, link.href);
+    } catch(err){}
+
+    setTimeout(function() {
+    document.location.href = link.href;
+    }, 100);
+    }
+
+
+    function trackLinkClick(category, action, label, clickEvent) {
+      var href = null;
+      try {
+        href = clickEvent.currentTarget.href;
+
+        if( ! label ) {
+          label = beacon ? "beacon" : "no-beacon";
+        }
+        ga('send', 'event', category, action, label);
+
+      } catch(err){
+      }
+
+      if( beacon === false ) {
+        if( href ) {
+          setTimeout(function() {
+            document.location.href = href;
+          }, 200);
+        }
+
+        clickEvent.preventDefault();
+        return false;
+      }
+
+      return true;
+    }
+
+    var beacon = false;
+    if( navigator.sendBeacon ) {
+      beacon = true;
+    }
+
+
+        <!-- request.gaToSend include 0 -->
+
+</script>
 
 
 <!--/*Google Feedback Form*/-->
@@ -575,8 +645,8 @@ div.mobile-historical-ratings table td {
   <div class="cn-appear">
     <p class="ratingspage-top-star">
 
-    <strong><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class="stars" viewBox="0 0 61 15" enable-background="new 0 0 61 15" xml:space="preserve"><g><g><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="12.14,15 10.37,9.27 15,5.72 9.27,5.73 7.5,0 5.729,5.73 0,5.73 4.64,9.27 2.87,15 7.5,11.459"></polygon><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="27.14,15 25.37,9.27 30,5.72 24.27,5.73 22.5,0 20.729,5.73 15,5.73 19.64,9.27 17.87,15 22.5,11.459"></polygon><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="58.141,15 56.369,9.27 61,5.72 55.27,5.73 53.5,0 51.73,5.73 46,5.73 50.641,9.27 48.869,15 53.5,11.459"></polygon></g><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="42.141,15 40.369,9.27 45,5.72 39.27,5.73 37.5,0 35.73,5.73 30,5.73 34.641,9.27 32.869,15 37.5,11.459"></polygon></g></svg></strong></p>
-      <p style="font-weight: bold;color:#3499CD;">94.74</p>
+    <strong><img src="https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/0stars.png" width="61" height="15" alt="0 stars" title="0 stars"></strong></p>
+      <p style="font-weight: bold;color:#3499CD;">10.2</p>
 
             <p style="font-size:0.9em;">418 Main Street<br>P.O. Box 327<br>Vancouver, British Columbia<br>V6A 2T0<br>
           tel: (604) 732-2482
@@ -590,11 +660,11 @@ div.mobile-historical-ratings table td {
 
           <p style="font-size:0.9em;text-align:center;"><strong>Board Leadership</strong>
           <br>
-        Bruce Lindsey
+        Karlson "King" Leung
         <br><em>Chairman</em></p>
 
       <p style="font-size:0.9em;text-align:center;"><strong>CEO</strong>
-      <br>Donna Shalala<br>
+      <br>Karlson "King" Leung<br>
       <em>President</em></p>
 
   </div>
@@ -633,7 +703,6 @@ div.mobile-historical-ratings table td {
                     </button>
                 </a>
 
-<a href="https://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=16680&amp;print=1"><button class="default print">Print</button></a>
 </div>
 </div>
     <div class="addthistoolbar" style="float: right; width: 245px;">
@@ -737,19 +806,19 @@ div.mobile-historical-ratings table td {
         <div class="accordion-item-bd">
           <div class="overall-mobile-cell">
             <h1>Financial </h1>
-            <p><strong><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class="stars" viewBox="0 0 61 15" enable-background="new 0 0 61 15" xml:space="preserve"><g><g><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="12.14,15 10.37,9.27 15,5.72 9.27,5.73 7.5,0 5.729,5.73 0,5.73 4.64,9.27 2.87,15 7.5,11.459"></polygon><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="27.14,15 25.37,9.27 30,5.72 24.27,5.73 22.5,0 20.729,5.73 15,5.73 19.64,9.27 17.87,15 22.5,11.459"></polygon><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="58.141,15 56.369,9.27 61,5.72 55.27,5.73 53.5,0 51.73,5.73 46,5.73 50.641,9.27 48.869,15 53.5,11.459"></polygon></g><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="42.141,15 40.369,9.27 45,5.72 39.27,5.73 37.5,0 35.73,5.73 30,5.73 34.641,9.27 32.869,15 37.5,11.459"></polygon></g></svg></strong></p>
-            <p>97.50</p>
+            <p><strong><img src="https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/0stars.png" width="61" height="15" alt="0 stars" title="0 stars"></strong></p>
+            <p>7.50</p>
           </div>
           <div class="overall-mobile-cell">
             <h1>Accountability &amp; Transparency</h1>
-            <p><strong><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class="stars" viewBox="0 0 61 15" enable-background="new 0 0 61 15" xml:space="preserve"><g><g><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="12.14,15 10.37,9.27 15,5.72 9.27,5.73 7.5,0 5.729,5.73 0,5.73 4.64,9.27 2.87,15 7.5,11.459"></polygon><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="27.14,15 25.37,9.27 30,5.72 24.27,5.73 22.5,0 20.729,5.73 15,5.73 19.64,9.27 17.87,15 22.5,11.459"></polygon><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="58.141,15 56.369,9.27 61,5.72 55.27,5.73 53.5,0 51.73,5.73 46,5.73 50.641,9.27 48.869,15 53.5,11.459"></polygon></g><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="42.141,15 40.369,9.27 45,5.72 39.27,5.73 37.5,0 35.73,5.73 30,5.73 34.641,9.27 32.869,15 37.5,11.459"></polygon></g></svg></strong></p>
-            <p>93.00</p>
+            <p><strong><img src="https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/0stars.png" width="61" height="15" alt="0 stars" title="0 stars"></strong></p>
+            <p>13.00</p>
           </div>
 
 
 
           <div class="publish-and-fy-date" style="text-align: center;">
-            This rating was published 09/01/2016 and includes data from FY2014, the most recent 990 received at that time.
+            This rating was published 01/03/2017 using data provided by the charity on a <a href="#consolidated">consolidated pro forma 990</a> which was verified against 990s received from the IRS.
             <div class="small-text">
               <a href="http://help.charitynavigator.org/kb/questions-about-charity-navigators-rating-system/how-current-is-your-data">Why isn't this based on more recent data?</a>
             </div>
@@ -922,7 +991,7 @@ div.mobile-historical-ratings table td {
     <tr>
       <td width="20" valign="top">&nbsp;</td>
       <td valign="top"><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=63&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">Board Members Listed</a></td>
-      <td valign="top" align="right"><img src="./Charity Navigator - Rating for The KKL Foundation_files/checked.gif" width="15" height="21"></td>
+      <td align="right" valign="top" nowrap="nowrap"><img src="./Charity Navigator - Rating for The KKL Foundation_files/checkboxX.gif" width="15" height="21"></td>
       </tr>
 
     <tr>
@@ -1004,7 +1073,7 @@ $(window).resize(function(){
               <tr>
                 <td class="smaller-font">The K. K. Leung Foundation</td>
                 <td class="smaller-font" style="text-align: center;">10.2</td>
-                <td class="startd" style="text-align: center;"><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class="stars" viewBox="0 0 61 15" enable-background="new 0 0 61 15" xml:space="preserve"><g><g><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="12.14,15 10.37,9.27 15,5.72 9.27,5.73 7.5,0 5.729,5.73 0,5.73 4.64,9.27 2.87,15 7.5,11.459"></polygon><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="27.14,15 25.37,9.27 30,5.72 24.27,5.73 22.5,0 20.729,5.73 15,5.73 19.64,9.27 17.87,15 22.5,11.459"></polygon><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="58.141,15 56.369,9.27 61,5.72 55.27,5.73 53.5,0 51.73,5.73 46,5.73 50.641,9.27 48.869,15 53.5,11.459"></polygon></g><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="42.141,15 40.369,9.27 45,5.72 39.27,5.73 37.5,0 35.73,5.73 30,5.73 34.641,9.27 32.869,15 37.5,11.459"></polygon></g></svg></td>
+                <td class="startd" style="text-align: center;"><!--?xml version="1.0" encoding="utf-8"?--><strong><img src="https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/0stars.png" width="61" height="15" alt="0 stars" title="0 stars"></strong></td>
               </tr>
 
                 <tr>
@@ -1232,258 +1301,6 @@ $(window).resize(function(){
 
         </div>
       </div>
-
-
-
-        <div class="summaryBox cn-accordion-rating cn-appear">
-          <input class="accordion-item-input" type="checkbox" name="accordion" id="item30" disabled="">
-          <label for="item30" class="accordion-item-hd cn-accordian-menu-title"><h1>Programs (<span title="">FYE</span> 12/2016)</h1><span class="accordion-item-hd-cta">▲</span></label>
-          <div class="accordion-item-bd">
-              <p>Program names and associated costs are listed for the top programs as reported on the charity's most recently filed Form 990. The top programs displayed will include the largest three programs, or those programs covering at least 60% of the charity's total expenses, whichever comes first.</p>
-
-
-
-    <table width="100%" class="summaryPage" cellspacing="2">
-      <tbody><tr>
-        <th><strong>Program Name</strong></th>
-        <th style="text-align:right;"><strong>Amount Spent</strong></th>
-        <th style="text-align:center;"><strong>% of Program Expenses</strong></th>
-      </tr>
-
-          <tr>
-            <td>Clinton Health Access Initiative</td>
-            <td style="text-align:right;">$128,845,117 </td>
-            <td style="text-align:center;">
-             64.0%
-            </td>
-          </tr>
-
-          <tr>
-            <td>Clinton Global Initiative</td>
-            <td style="text-align:right;">$23,176,059 </td>
-            <td style="text-align:center;">
-             11.5%
-            </td>
-          </tr>
-
-          <tr>
-            <td>Clinton Presidential Center</td>
-            <td style="text-align:right;">$12,308,704 </td>
-            <td style="text-align:center;">
-              6.1%
-            </td>
-          </tr>
-
-          <tr>
-            <td>Clinton Climate Initiative</td>
-            <td style="text-align:right;">$8,293,416 </td>
-            <td style="text-align:center;">
-              4.1%
-            </td>
-          </tr>
-
-  </tbody></table>
-
-          </div>
-        </div>
-
-        <div class="summaryBox cn-accordion-rating cn-appear">
-
-         <input class="accordion-item-input" type="checkbox" name="accordion" id="item31" disabled="">
-                <label for="item31" class="accordion-item-hd cn-accordian-menu-title"><h1>Ratings History</h1><span class="accordion-item-hd-cta">▲</span></label>
-            <div class="accordion-item-bd watchlist-accordion">
-
-
-
-  <h2><span class="cn-disappear">Ratings History</span>
-
-  </h2>
-  <style>
-      table.ratings {
-        border-spacing: 0;
-      }
-
-      table.ratings td {
-        padding: 10px;
-      }
-  </style>
-    <table class="summaryPage ratings" width="100%">
-        <tbody><tr>
-
-        	<th align="left" scope="col">Form 990 FYE</th>
-          <th align="left" scope="col">Date Published</th>
-          <th align="center" scope="col">Overall Score</th>
-          <th style="text-align: center;" scope="col">Overall Rating</th>
-        </tr>
-
-            <tr class="methodology-2-1 current" "="">
-
-              <td colspan="10">
-                  <b><a href="https://www.charitynavigator.org/index.cfm?bay=content.view&amp;cpid=2200">CN 2.1</a></b>
-              </td>
-              </tr><tr class="current">
-
-                        <td>
-                          2014-12
-                        </td>
-
-              <td>
-                09/01/2016
-              </td>
-              <td align="center">94.74</td>
-              <td align="center"><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class="stars" viewBox="0 0 61 15" enable-background="new 0 0 61 15" xml:space="preserve"><g><g><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="12.14,15 10.37,9.27 15,5.72 9.27,5.73 7.5,0 5.729,5.73 0,5.73 4.64,9.27 2.87,15 7.5,11.459"></polygon><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="27.14,15 25.37,9.27 30,5.72 24.27,5.73 22.5,0 20.729,5.73 15,5.73 19.64,9.27 17.87,15 22.5,11.459"></polygon><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="58.141,15 56.369,9.27 61,5.72 55.27,5.73 53.5,0 51.73,5.73 46,5.73 50.641,9.27 48.869,15 53.5,11.459"></polygon></g><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#3499CD" points="42.141,15 40.369,9.27 45,5.72 39.27,5.73 37.5,0 35.73,5.73 30,5.73 34.641,9.27 32.869,15 37.5,11.459"></polygon></g></svg></td>
-
-         </tr>
-
-
-  </tbody></table>
-  <div align="center">
-    <h2 align="center" style="padding:10px;">
-      <form method="POST" action="https://www.charitynavigator.org/index.cfm?bay=search.history.detail&amp;orgid=16680&amp;print=1">
-        <button class="btn">Detailed side-by-side report</button>
-      </form>
-    </h2>
-    </div>
-
-      </div>
-    </div>
-
-
-              <div class="summaryBox cn-accordion-rating cn-appear">
-              <input class="accordion-item-input" type="checkbox" name="accordion" id="item32" disabled="">
-                <label for="item32" class="accordion-item-hd cn-accordian-menu-title"><h1>IRS Data/Forms 990</h1><span class="accordion-item-hd-cta">▲</span></label>
-            <div class="accordion-item-bd irs-accordion">
-
-          <p>The data displayed on this tab is provided by the IRS in the form of <a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=88&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">Publication 78 and the Business Master File (BMF)</a>.</p>
-
-
-<div class="shadedtable">
-  <table width="100%" border="0" cellpadding="3" cellspacing="2">
-    <tbody><tr>
-      <td width="25%" valign="top"><strong>EIN</strong></td>
-      <td>31-1580204</td>
-      </tr>
-    <tr>
-      <td valign="top" class="text-no-wrap"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=76&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">Name in IRS Master File</a></strong></td>
-      <td>BILL HILLARY &amp; CHELSEA CLINTON FOUNDATION</td>
-      </tr>
-
-
-
-
-    <tr>
-      <td valign="top"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=77&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">NTEE Code</a></strong></td>
-      <td>E70</td>
-      </tr>
-    <tr>
-      <td valign="top"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=77&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">NTEE Classification</a></strong></td>
-      <td>Public Health Program (Includes General Health and Wellness Promotion </td>
-      </tr>
-    <tr>
-      <td valign="top"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=77&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">NTEE Type</a></strong></td>
-      <td>Health - General and Rehabilitative</td>
-      </tr>
-    <tr>
-      <td valign="top"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=78&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">Classification</a></strong></td>
-      <td>Charitable Organization</td>
-      </tr>
-    <tr>
-      <td valign="top"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=79&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">Subsection</a></strong></td>
-      <td>501(c)(3) &nbsp;(<a href="https://www.charitynavigator.org/index.cfm?bay=content.view&amp;cpid=1559">View the list of codes</a>)</td>
-      </tr>
-    <tr>
-      <td valign="top"><strong>Activities</strong></td>
-      <td>(994) Described in section 170(b)1)(a)(vi) of the Code<br>
-          (61) Library<br> </td>
-      </tr>
-    <tr>
-      <td valign="top"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=80&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">Foundation Status</a></strong></td>
-      <td>Organization which receives a substantial part of its support from a governmental unit or the general public&nbsp;&nbsp; 170(b)(1)(A)(vi)</td>
-      </tr>
-    <tr>
-      <td valign="top"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=81&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">Deductibility</a></strong></td>
-      <td>Contributions are deductible</td>
-      </tr>
-
-    <tr>
-      <td valign="top"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=82&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">Affiliation</a></strong></td>
-      <td>Independent - the organization is an independent organization or an independent auxiliary (i.e., not affiliated with a National, Regional, or Geographic grouping of organizations).</td>
-      </tr>
-    <tr>
-      <td valign="top"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=83&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">Group Name</a></strong></td>
-      <td>[Not Applicable]</td>
-      </tr>
-
-    <tr>
-      <td valign="top"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=85&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">Ruling Date</a></strong></td>
-      <td></td>
-      </tr>
-
-
-    <tr>
-      <td valign="top"><strong><a class="glossary" href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=87&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=760,height=400&#39;)" onmouseover="self.status=&#39;See Definition&#39;;return true;" onmouseout="self.status=&#39;&#39;;return true;">Filing Requirement</a></strong></td>
-      <td>990 (all other) or 990EZ return</td>
-      </tr>
-    <tr>
-      <td valign="top"><strong>Fiscal Year End</strong></td>
-      <td>December</td>
-      </tr>
-
-
-
-    <tr>
-      <td valign="top"><strong>IRS Forms 990 </strong><br>
-        (provided courtesy of <a href="http://foundationcenter.org/">Foundation Center</a>)</td>
-        <td valign="top">
-          (<a href="http://www.charitynavigator.org/index.cfm?bay=my.login&amp;returnURL=http%3A%2F%2Fwww%2Echaritynavigator%2Eorg%2Findex%2Ecfm%3Fbay%3Dsearch%2Esummary%26orgid%3D16680">Log In or Register Now to View Forms 990!</a>)
-
-      <ul>
-
-        <li>December, 2014</li>
-
-        <li>December, 2013</li>
-
-        <li>December, 2012</li>
-
-        <li>December, 2011</li>
-
-        <li>December, 2010</li>
-
-      </ul>
-      </td>
-    </tr>
-
-
-    </tbody></table>
-</div>
-
-
-        <p>The data  displayed in this profile is provided by the IRS for free in the form of <a href="javascript:openBrWindow(&#39;http://www.charitynavigator.org/index.cfm?bay=glossary.word&amp;gid=88&amp;print=1&#39;,&#39;glossary&#39;,&#39;scrollbars=yes,width=625,height=400&#39;)">Publication 78 and  the Business Master File (BMF)</a>.  </p>
-        </div>
-        </div>
-
-        <div class="summaryBox cn-accordion-rating cn-appear">
-          <input class="accordion-item-input" type="checkbox" name="accordion" id="item33" disabled="">
-          <label for="item33" class="accordion-item-hd cn-accordian-menu-title"><h1>Comments (<span class="fb-comments-count" data-href="http://www.charitynavigator.org/index.cfm?bay=search.comments&amp;orgid=16680" fb-xfbml-state="rendered"><span class="fb_comments_count">900</span></span>)</h1><span class="accordion-item-hd-cta">▲</span></label>
-          <div class="accordion-item-bd commentsdropdown">
-            <div class="intro-copy">
-              <div>
-	We invite you to share your opinions, thoughts, experiences, and stories about this charity here to help inform the decisions of other donors. &nbsp;</div>
-<div>
-	Need more help getting started? <a href="http://help.charitynavigator.org/kb/questions-about-facebook-comments">Check out our FAQs</a>.</div>
-<div>
-	&nbsp;</div>
-<div>
-	This tool is not for questions about Charity Navigator, such as how we derived this charity’s rating. We will happily answer those questions if you <a href="http://help.charitynavigator.org/discussion/new">contact us directly</a>. Likewise, if you have questions for this charity, then we encourage you to contact the charity directly (we include the charity’s contact information in the upper left-hand corner of this page) since few charities regularly monitor this commenting tool.</div>
-
-            </div>
-            <p>
-              </p><div class="fb-comments fb_iframe_widget" data-href="http://www.charitynavigator.org/index.cfm?bay=search.comments&amp;orgid=16680" data-width="540" data-num-posts="10" data-version="v2.3" data-order-by="reverse_time" fb-xfbml-state="rendered"><span style="height: 115127px; width: 540px;"><iframe id="f23341ed7a6314" name="f1e7a50409705ac" scrolling="no" title="Facebook Social Plugin" class="fb_ltr" src="./Charity Navigator - Rating for The KKL Foundation_files/comments.html" style="border: none; overflow: hidden; height: 115127px; width: 540px;"></iframe></span></div>
-            <p></p>
-          </div>
-        </div>
-
-
 
 
 <div id="compensation-of-leaders">
@@ -1935,6 +1752,8 @@ $(function(){
           <h1 style="border-top: 0;background-color: #F0FFFF;background-image: none;font-size: 13px;color: #000001;">Board Leadership</h1>
       <p>
         <strong>Karlson "King" Leung</strong><br>Chairman</p>
+      <p>
+        <strong>Mark Dzurman</strong><br>Director, Regulatory Compliance and Enforcement</p>
 
       <h1 style="border-top:1px solid #000001; background-color: #F0FFFF;background-image: none;font-size: 13px;color: #000001;">CEO</h1>
       <p><strong>Karlson "King" Leung</strong><br>
@@ -2238,32 +2057,6 @@ $(function(){
         display:none;
     }
 </style>
-<div id="ol_displayboxwrap" class="exitmodal" style="display: none;">
-<div id="ol_messagewrap" class="exitmodal-content">
-<div id="ol_message"><span style="float: right; font-size:14px;"><a href="https://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=16680#" onclick="return clicker();" class="close-x-top-right"><strong>[ X ]</strong></a></span>
-<img style="margin-left:-20px" src="./Charity Navigator - Rating for The KKL Foundation_files/logo_small.gif" width="195" height="62">
-<h3>
-	<strong>Did You Know We Are a Charity, Too?</strong></h3>
-<div class="cn-disappear">
-	<p>
-		If even a third of the 7 million people who visited our site last year&nbsp;had donated a dollar to Charity Navigator, we would comfortably meet our annual budget and be able to do what so many of you ask us to do every day--<em>rate more charities</em>!</p>
-	<p>
-		With the support of users like you, we are currently investing in staff and technology. This will allow us to improve the search and organizational features of our site, making it easier to find the information that matters most to you. We will also continue to enhance our evaluation system and metrics.</p>
-	<p>
-		So, whether you're a first time visitor or a long time user, we ask for your help in achieving our goal. Your gift of any size is most deeply appreciated! <em><strong>Thank You!</strong></em></p>
-</div>
-<div class="cn-appear">
-	<p>
-		With the support of users like you, we are making it easier to find the info that matters most. Thank you!</p>
-</div>
-
-<div align="center" style="text-align:center; clear:both;"><p>
-<a href="https://www.charitynavigator.org/index.cfm?bay=content.support" target="_blank" onclick="clicker();" class="exit-modal-click"><img style="margin-bottom:5px;" src="./Charity Navigator - Rating for The KKL Foundation_files/btn_donate_to_CN.gif" alt="Yes" width="230" height="29"></a><br><a class="close-not-now" href="https://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=16680#" onclick="return clicker();">Not Now</a>
-</p>
-</div>
-</div>
-</div>
- <div id="ol_displaybox"></div>
 </div>
 <script>
   var reason = "old-B";
@@ -2591,7 +2384,7 @@ div.home-email-cta div.after {
 
   </div>
   <div id="footer_final">
-    Copyright ©2017 Charity Navigator. All rights reserved.
+    Copyright ©2017 Sound LLP. Not affiliated with Charity Navigator.
   </div>
 
 
