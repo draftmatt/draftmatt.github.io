@@ -300,6 +300,11 @@ nav:after, .nav-container:after, .navbar-collapse:after, .navbar-header:after, .
 @media screen and (min-width: 42em) and (max-width: 64em) { .page-header { padding: 3rem 4rem; } }
 @media screen and (max-width: 42em) { .page-header { padding: 2rem 1rem; background-position: -400px -125px; } }
 
+.foibles-page-header { color: #fff; text-align: center; background-image: url('/images/tbc-dad-joke-face.jpg'); background-repeat: no-repeat; min-height: 600px; max-height: 1240px; background-position: bottom; background-size: cover; }
+@media screen and (min-width: 64em) { .foibles-page-header { padding: 5rem 6rem; } }
+@media screen and (min-width: 42em) and (max-width: 64em) { .foibles-page-header { padding: 3rem 4rem; } }
+@media screen and (max-width: 42em) { .foibles-page-header { padding: 2rem 1rem; } }
+
 .page-header-thank-you { color: #fff; text-align: center; background-image: url('/images/tbc-canada-day.jpg'); background-repeat: no-repeat; min-height: 900px; max-height: 1240px; background-position: 0 -125px; background-size: 100%; }
 @media screen and (min-width: 64em) { .page-header-thank-you { padding: 5rem 6rem; } }
 @media screen and (min-width: 42em) and (max-width: 64em) { .page-header-thank-you { padding: 3rem 4rem; } }
