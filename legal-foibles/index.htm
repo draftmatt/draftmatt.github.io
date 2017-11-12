@@ -15,6 +15,30 @@
         $(".navbar-toggle").click(function() {
           $("#menu-collapse").toggleClass("collapse");
         });
+        
+        $("#watch-video").click(function () {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+
+          if (target.length) {
+            // Only prevent default if animation is actually gonna happen
+            event.preventDefault();
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 1000, function() {
+              // Callback after animation
+              // Must change focus!
+              var $target = $(target);
+              $target.focus();
+              if ($target.is(":focus")) { // Checking if the target was focused
+                return false;
+              } else {
+                $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                $target.focus(); // Set focus again
+              };
+            });
+          }
+        });
       });
     </script>
     <meta property="og:image" content="/images/legal-foibles-fb.png">
@@ -62,7 +86,7 @@
         <h2>So much better than Law Follies!</h2>
       </div>
       <div class="centre-form">
-        <form action="#intro">
+        <form action="#intro" method="get">
           <!-- <div class="form-box left-align">
             <div class="form-box form-element">
               <label for="first_name">First Name</label>
@@ -84,7 +108,7 @@
             </div>
           </div> -->
           <div class="form-box">
-            <input name="submit" type="submit" value="SIGN ME UP!">
+            <input name="submit" type="submit" id="watch-video" value="SIGN ME UP!">
           </div>
         </form>
       </div>
