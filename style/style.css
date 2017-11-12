@@ -400,12 +400,19 @@ input[type="submit"]:hover
 
 #watch-video
 {
-  background-color: #ffffff;
+  background-color: #39449a;
   color: #39449a;
   border: 2px solid #39449a;
   min-height: 50px;
   width: 50%;
   font-weight: 900;
+  padding: 1em 5em;
+}
+
+#watch-video:hover
+{
+  text-decoration: none;
+  background-color: #ffffff;
 }
 
 .wrap-left { float: left; margin-right: 1em; }
