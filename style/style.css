@@ -398,6 +398,16 @@ input[type="submit"]:hover
   border: 2px solid #39449a;
 }
 
+#watch-video
+{
+  background-color: #ffffff;
+  color: #39449a;
+  border: 2px solid #39449a;
+  min-height: 50px;
+  width: 50%;
+  font-weight: 900;
+}
+
 .wrap-left { float: left; margin-right: 1em; }
 .wrap-right { float: right; margin-left: 1em; }
 
